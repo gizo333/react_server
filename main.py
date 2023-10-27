@@ -14,9 +14,9 @@ from send_mail import router
 
 app = FastAPI()
 
-# Настройка CORS
+
 origins = [
-    "*",  # Разрешаем доступ с этого домена и порта
+    "*",  
 ]
 
 app.add_middleware(
