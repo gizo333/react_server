@@ -17,13 +17,13 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     password = Column(String)
 
-        #хэширует
+    
     def set_password(self, raw_password: str):
         salt = bcrypt.gensalt()
         self.password = bcrypt.hashpw(raw_password.encode('utf-8'), salt).decode('utf-8')
         
 
-        #сравнивает хешированный пароль с введенным паролем
+   
     def verify_password(self, raw_password: str) -> bool:
         return bcrypt.checkpw(raw_password.encode('utf-8'), self.password.encode('utf-8'))
 
